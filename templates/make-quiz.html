@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Make Quiz</title>
+    </head>
+    <body>
+        <h1>You can make a quiz from there.</h1>
+        <h2>The question count is {{ .RecordCount }}</h2>
+        <h3>How many questions do you want to answer:</h3>
+        <form action="/make-quiz" method="POST">
+            <input type="number" name="questionCount" /> <br/>
+            <input type="submit" value="Start Quiz" /> <br/>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Quiz</title>
+    </head>
+    <body>
+        <h1>Here is your quiz:</h1>
+        <form action="/quiz" method="POST">
+            <input type="hidden" name="questionCount" value="{{ .QuestionCount }}" />
+            <ul>
+                {{range .Data}}
+
+                    <p><b>{{ .Index }}.</b> Select the word which means: <b>{{ .Question }}</b></p>
+                    
+                    &emsp;
+                    <b>[A]</b><input type="radio" id="optionA" name="option{{ .Index }}" value="{{ .OptionA }}">
+                    <label for="optionA">{{ .OptionA }}</label><br/>
+
+                    &emsp;
+                    <b>[B]</b><input type="radio" id="optionB" name="option{{ .Index }}" value="{{ .OptionB }}">
+                    <label for="optionB">{{ .OptionB }}</label><br/>
+
+                    &emsp;
+                    <b>[C]</b><input type="radio" id="optionC" name="option{{ .Index }}" value="{{ .OptionC }}">
+                    <label for="optionC">{{ .OptionC }}</label><br/>
+
+                    &emsp;
+                    <b>[D]</b><input type="radio" id="optionD" name="option{{ .Index }}" value="{{ .OptionD }}">
+                    <label for="optionD">{{ .OptionD }}</label><br/>
+
+                    <input type="hidden" name="trueAnswer{{ .Index }}" value="{{ .TrueAnswer }}" />
+                {{end}}
+            </ul>
+            <p><input type="submit" value="Complete the quiz!" /></p>
+        </form>
+    </body>
+</html>
